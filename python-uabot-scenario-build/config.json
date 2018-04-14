@@ -1,0 +1,26 @@
+{
+    "access_token": "xxcb8b6a78-16a2-4aec-b9a6-27df2ea0f5bc",
+    "searchendpoint" : "https://platform.cloud.coveo.com/rest/search/",
+	"analyticsendpoint" : "https://usageanalytics.coveo.com/rest/v15/analytics/",
+	"orgName"     : "sitecorecommercedemo",
+	"randomGoodQueries": ["Mirrorless", "lens", "photos", "background blur", "professional sensor camera", "pro dslr", "16–50mm", "55mm", "18 megapixel", 
+		"camera bag compartment", "zooming shaking distance", "nonslip tripod", 
+		"4k resolution video", "nature portrait", "photo memory card", "optix lens 24 megapixel"],
+	"randomBadQueries": ["vidao","defenetion","heigh", "resalation"],
+	"allowAnonymousVisits"	: true,
+	"anonymousThreshold" : 1,
+	"timeBetweenVisits": 2,
+	"timeBetweenActions": 1,
+    "defaultPageViewField":"fid28306",
+    "pipeline": "default",
+    "randomCustomData": [
+		{
+			"apiname": "c_context_profile_Retail_Persona",
+			"values": ["Celine the Photographer"]
+		},
+		{
+			"apiname": "c_isbot", "values": ["true"]
+		}
+    ],
+	"globalFilter":"(@syssource==\"Coveo_web_index - LAUNCHSITECORE-Habitat.dev.local\")"
+}
