@@ -1,0 +1,55 @@
+{
+    "access_token": "xxcb8b6a78-16a2-4aec-b9a6-27df2ea0f5bc",
+    "organizationId": "coveolearningbasicanalytics",
+    "tabNames":{
+       "All":{
+           "name": "All",
+           "cq": ""
+       },
+       "App Store": {
+           "name": "App Store",
+           "cq": "@source= \"App Store\""
+       },
+       "Demo": {
+        "name": "App Store",
+        "cq": "@source= \"App Store\""
+        },
+        "Games":{
+            "name": "Games",
+            "cq": "@appcategory=\"Games\""
+        },
+        "Sports": {
+            "name": "Sports",
+            "cq": "@appcategory=\"Sports\""
+        },
+        "Books": {
+            "name": "Books",
+            "cq": "@appcategory=\"Books\""
+        },
+        "Youtube": {
+            "name": "Youtube",
+            "cq": "@appcategory=\"Apple Youtube Demo\""
+        }
+    },
+    "facetNames":{
+        "App Category" : {
+            "facetTitle": "App Category",
+            "facetField": "@appcategory",
+            "facetTab": ["App Store"],
+            "facetValues": ""
+        },
+        "iTunes Age Requirements" : {
+            "facetTitle": "iTunes Age Requirements",
+            "facetField": "@apprating",
+            "facetTab": ["App Store", "Games", "Sports", "Books"],
+            "facetValues": ""
+        },
+        "App Languages" : {
+            "facetTitle": "App Languages",
+            "facetField": "@applanguages",
+            "facetTab": ["App Store", "Games", "Sports", "Books"],
+            "facetValues": ""
+        }
+    }
+    
+}

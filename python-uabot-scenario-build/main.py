@@ -1,10 +1,37 @@
 import json
 from utilities import fileManager
+from utilities import searchApi
 import scenarioMaker
 import bodyMaker
 
-def hello():
-    print("Hello")
+config = fileManager.readConfig('config.json')
+
+def classifyResults(config):
+    result_list_file = 'data/result_list.json'
+    good_result_file = 'data/good_result_file.json'
+    no_result_file = 'data/no_result_file.json'
+    bad_results_file = 'data/bad_results_file.json'
+
+    result_list = fileManager.readJson(result_list_file)
+
+    good_results = {}
+    no_results = {}
+    bad_results = {}
+
+    for key in result_list:
+        if result_list[key]['totalCount']>15:
+            good_results[key] = result_list[key]
+        elif (result_list[key]['totalCount']<15 and result_list[key]['totalCount']>0):
+            bad_results[key] = result_list[key]
+        else:
+            no_results[key] = result_list[key]
+
+    fileManager.createJsonFile(good_result_file, good_results)
+    fileManager.createJsonFile(no_result_file, no_results)
+    fileManager.createJsonFile(bad_results_file, bad_results)
+
+
+
 
 
 

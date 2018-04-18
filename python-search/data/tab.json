@@ -1,0 +1,30 @@
+{
+    "All": {
+        "name": "All",
+        "cq": ""
+    },
+    "App Store": {
+        "name": "App Store",
+        "cq": "@source= \"App Store\""
+    },
+    "Demo": {
+        "name": "App Store",
+        "cq": "@source= \"App Store\""
+    },
+    "Games": {
+        "name": "Games",
+        "cq": "@appcategory=\"Games\""
+    },
+    "Sports": {
+        "name": "Sports",
+        "cq": "@appcategory=\"Sports\""
+    },
+    "Books": {
+        "name": "Books",
+        "cq": "@appcategory=\"Books\""
+    },
+    "Youtube": {
+        "name": "Youtube",
+        "cq": "@appcategory=\"Apple Youtube Demo\""
+    }
+}

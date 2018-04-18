@@ -10,5 +10,5 @@ def createScenario(scenario_file, scenario):
     with open(scenario_file, 'w') as f:
         f.write(json.dumps(scenario))
 
-def readConfig(config_file):
-    return json.load(open(config_file))
+def readJson(file_path):
+    return json.load(open(file_path))

@@ -1,0 +1,486 @@
+<html><head>
+  
+<title>Demo</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0,  maximum-scale=1.0, user-scalable=0">
+<script src="https://static.cloud.coveo.com/searchui/v1.2537/js/CoveoJsSearch.min.js"></script>
+<script src="https://static.cloud.coveo.com/searchui/v1.2537/js/templates/templatesNew.js"></script>
+<link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v1.2537/css/CoveoFullSearchNewDesign.css">
+
+<style>
+  body {
+    margin: 0;
+  }
+  .coveo-logout {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    cursor: pointer;
+    opacity: 0.5;
+  }
+  .coveo-logout:hover {
+    opacity: 1;
+  }
+</style>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    
+    Coveo.SearchEndpoint.endpoints['default'] = new Coveo.SearchEndpoint({
+      restUri: '/rest/search',
+      accessToken: 'eyJhbGciOiJIUzI1NiJ9.eyJ2OCI6dHJ1ZSwib3JnYW5pemF0aW9uIjoiY292ZW9sZWFybmluZ2Jhc2ljYW5hbHl0aWNzIiwidXNlcklkcyI6W3sicHJvdmlkZXIiOiJFbWFpbCBTZWN1cml0eSBQcm92aWRlciIsIm5hbWUiOiJjb3Zlb3RyYWluaW5pbmdyZXF1ZXN0QGdtYWlsLmNvbSIsInR5cGUiOiJVc2VyIn1dLCJyb2xlcyI6WyJzZWFyY2hQYWdlUmVhZCIsInNlYXJjaFBhZ2VXcml0ZSIsInF1ZXJ5RXhlY3V0b3IiXSwidXNlckRpc3BsYXlOYW1lIjoiRnJlZGVyaWMgQ290ZSIsImV4cCI6MTUyNDAxMjcxNywiaWF0IjoxNTIzOTI2MzE3LCJzYWxlc2ZvcmNlRmFsbGJhY2tUb0FkbWluIjpmYWxzZX0.l9LP8QBgtTY_TileEF8QDX0PutSpDGgd2sOtPGSJY9E',
+      queryStringArguments: {
+        organizationId: 'coveolearningbasicanalytics'
+      }
+    });
+     
+    Coveo.Analytics.options.endpoint.defaultValue = 'https://usageanalytics.coveo.com';
+    Coveo.Analytics.options.searchHub.defaultValue = 'Demo';
+    Coveo.Analytics.options.organization.defaultValue = 'coveolearningbasicanalytics';
+
+    document.addEventListener("afterComponentsInitialization", function () {
+      var analytics = document.querySelector('.CoveoAnalytics');
+      if (analytics != null) {
+        Coveo.get(analytics).setOriginContext('Hosted');
+      }
+    });
+
+    Coveo.init(document.querySelector('#search'));
+  });
+</script>
+    
+  
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    var img = Coveo.$$('img');
+    img.addClass('coveo-logout');
+    img.setAttribute('src', 'lib/assets/logout.png');
+    img.setAttribute('title', 'Logout coveotraininingrequest@gmail.com');
+    img.on('click', function() {
+        var hashWithoutLeadingPound = window.location.hash.replace(/^#/, '');
+        window.location.href = 'util/logout?redirect=' + encodeURIComponent(window.location.href) + '&hash=' + encodeURIComponent(hashWithoutLeadingPound);
+      });
+    document.body.appendChild(img.el);
+    });
+</script>
+     
+</head>
+<body style="margin: 0">
+  <div id="search" class="CoveoSearchInterface Coveostate CoveoComponentState CoveoComponentOptions CoveoQueryController CoveoHistoryController CoveoDebug" data-enable-history="true" data-design="new" style="display: block;">
+  <div class="CoveoAnalytics">
+  </div>
+  <div class="coveo-tab-section"><a class="CoveoTab" data-id="ALL" data-caption="All" tabindex="0">
+    <p>All</p></a>
+<div class="CoveoTab coveo-selected" data-id="App Store" data-caption="App Store" data-expression="@source=&quot;App Store&quot;" tabindex="0">
+    <p>App Store</p></div>
+<div class="CoveoTab" data-id="Demo" data-caption="Demo" data-expression="@source=&quot;App Store&quot;" tabindex="0"><p>Demo</p></div>
+<div class="CoveoTab" data-id="Games" data-caption="Games" data-expression="@appcategory=&quot;Games&quot;" tabindex="0"><p>Games</p></div>
+<div class="CoveoTab" data-id="Sports" data-caption="Sports" data-expression="@appcategory=&quot;Sports&quot;" tabindex="0"><p>Sports</p></div>
+<div class="CoveoTab" data-id="Books" data-caption="Books" data-expression="@appcategory=&quot;Books&quot;" tabindex="0"><p>Books</p></div>
+<div class="CoveoTab" data-id="Youtube" data-caption="Youtube" data-expression="@source = &quot;Apple Youtube Demo&quot;" tabindex="0"><p>Youtube</p></div></div>
+  <div class="coveo-search-section">
+    <div class="CoveoSettings" data-include-in-menu=".CoveoShareQuery,.CoveoPreferencesPanel">
+    <span class="coveo-settings-squares"><span class="coveo-settings-square"></span><span class="coveo-settings-square"></span><span class="coveo-settings-square"></span></span></div>
+    <div class="CoveoSearchbox" data-enable-omnibox="true" data-enable-reveal-query-suggest-addon="true">
+    <a class="CoveoSearchButton"><span class="coveo-icon">Search</span></a><div class="CoveoOmnibox magic-box"><div class="magic-box-clear"><div class="magic-box-icon"></div></div><div class="magic-box-input"><div class="magic-box-underlay"><span class="magic-box-highlight-container"><span data-id="start" data-success="true"><span data-id="Start" data-success="true"><span data-id="Empty" data-success="true" data-value=""></span></span></span></span><span class="magic-box-ghost-text"></span></div><input spellcheck="false" form="coveo-dummy-form" autocomplete="off"></div><div class="magic-box-suggestions"></div></div></div>
+  </div>
+  <div class="coveo-main-section">
+    <div class="coveo-facet-column"><div class="coveo-facet-header-filter-by-container" style="display: none"><div class="coveo-facet-header-filter-by">Filter by:</div></div><div class="coveo-topSpace"></div><div class="CoveoFacet" data-title="App Category" data-field="@appcategory" data-tab="App Store, Demo">
+      <div class="coveo-facet-header"><div class="coveo-facet-header-title-section"><div title="App Category" class="coveo-facet-header-title">App Category</div><div class="coveo-facet-header-wait-animation" style="visibility: hidden;"></div></div><div class="coveo-facet-header-settings-section"><div title="Clear App Category" class="coveo-facet-header-eraser"><span class="coveo-icon"></span></div><div title="Switch to AND" class="coveo-facet-header-operator" style="display: none;"><span class="coveo-or coveo-icon"></span></div><div class="coveo-facet-header-settings" title="Settings"><span class="coveo-icon"></span></div></div></div><ul class="coveo-facet-values"><li class="coveo-facet-value coveo-facet-selectable" data-value="Games"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">1,351</span><span class="coveo-facet-value-caption" title="Games">Games</span></div></label><div title="Exclude Games" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="Weather"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">282</span><span class="coveo-facet-value-caption" title="Weather">Weather</span></div></label><div title="Exclude Weather" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="News"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">192</span><span class="coveo-facet-value-caption" title="News">News</span></div></label><div title="Exclude News" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="Travel"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">168</span><span class="coveo-facet-value-caption" title="Travel">Travel</span></div></label><div title="Exclude Travel" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="Food &amp; Drink"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">166</span><span class="coveo-facet-value-caption" title="Food &amp; Drink">Food &amp; Drink</span></div></label><div title="Exclude Food &amp; Drink" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable coveo-facet-search-button" data-value="Search"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox"><span></span></div><span class="coveo-facet-value-caption" title="Search">Search</span></div></label></li></ul><div class="coveo-facet-search"><div class="coveo-facet-search-magnifier" style="display: block;"></div><div class="coveo-facet-search-wait-animation" style="display: none;"></div><div class="coveo-facet-search-clear" title="Clear Search" style="display: none;"><span class="coveo-icon"></span></div><div class="coveo-facet-search-middle"><input type="text" autocapitalize="off" autocorrect="off" placeholder="" class="coveo-facet-search-input" form="coveo-dummy-form"></div></div><div class="coveo-facet-footer"><div class="coveo-facet-less" tabindex="0"><span class="coveo-icon"></span></div><div class="coveo-facet-more coveo-active" tabindex="0"><span class="coveo-icon"></span></div></div></div>
+<div class="CoveoFacet" data-title="iTunes Age Requirements" data-field="@apprating" data-tab="App Store, Demo, Games, Sports, Books"><div class="coveo-facet-header"><div class="coveo-facet-header-title-section"><div title="iTunes Age Requirements" class="coveo-facet-header-title">iTunes Age Requirements</div><div class="coveo-facet-header-wait-animation" style="visibility: hidden;"></div></div><div class="coveo-facet-header-settings-section"><div title="Clear iTunes Age Requirements" class="coveo-facet-header-eraser"><span class="coveo-icon"></span></div><div title="Switch to AND" class="coveo-facet-header-operator" style="display: none;"><span class="coveo-or coveo-icon"></span></div><div class="coveo-facet-header-settings" title="Settings"><span class="coveo-icon"></span></div></div></div><ul class="coveo-facet-values"><li class="coveo-facet-value coveo-facet-selectable" data-value="4+"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">3,156</span><span class="coveo-facet-value-caption" title="4+">4+</span></div></label><div title="Exclude 4+" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="12+"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">826</span><span class="coveo-facet-value-caption" title="12+">12+</span></div></label><div title="Exclude 12+" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="17+"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">420</span><span class="coveo-facet-value-caption" title="17+">17+</span></div></label><div title="Exclude 17+" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="9+"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">198</span><span class="coveo-facet-value-caption" title="9+">9+</span></div></label><div title="Exclude 9+" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li></ul><div class="coveo-facet-search"><div class="coveo-facet-search-magnifier" style="display: block;"></div><div class="coveo-facet-search-wait-animation" style="display: none;"></div><div class="coveo-facet-search-clear" title="Clear Search" style="display: none;"><span class="coveo-icon"></span></div><div class="coveo-facet-search-middle"><input type="text" autocapitalize="off" autocorrect="off" placeholder="" class="coveo-facet-search-input" form="coveo-dummy-form"></div></div><div class="coveo-facet-footer coveo-facet-empty"><div class="coveo-facet-less" tabindex="0"><span class="coveo-icon"></span></div><div class="coveo-facet-more" tabindex="0"><span class="coveo-icon"></span></div></div></div>
+<div class="CoveoFacet" data-title="App Languages" data-field="@applanguages" data-tab="App Store, Games, Sports, Books, Demo" data-is-multi-value-field="true" data-use-and="true"><div class="coveo-facet-header"><div class="coveo-facet-header-title-section"><div title="App Languages" class="coveo-facet-header-title">App Languages</div><div class="coveo-facet-header-wait-animation" style="visibility: hidden;"></div></div><div class="coveo-facet-header-settings-section"><div title="Clear App Languages" class="coveo-facet-header-eraser"><span class="coveo-icon"></span></div><div title="Switch to OR" class="coveo-facet-header-operator" style="display: none;"><span class="coveo-and coveo-icon"></span></div><div class="coveo-facet-header-settings" title="Settings"><span class="coveo-icon"></span></div></div></div><ul class="coveo-facet-values"><li class="coveo-facet-value coveo-facet-selectable" data-value="English"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">4,583</span><span class="coveo-facet-value-caption" title="English">English</span></div></label><div title="Exclude English" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="Spanish"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">2,068</span><span class="coveo-facet-value-caption" title="Spanish">Spanish</span></div></label><div title="Exclude Spanish" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="French"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">1,885</span><span class="coveo-facet-value-caption" title="French">French</span></div></label><div title="Exclude French" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="German"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">1,779</span><span class="coveo-facet-value-caption" title="German">German</span></div></label><div title="Exclude German" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="Italian"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">1,585</span><span class="coveo-facet-value-caption" title="Italian">Italian</span></div></label><div title="Exclude Italian" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable coveo-facet-search-button" data-value="Search"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox"><span></span></div><span class="coveo-facet-value-caption" title="Search">Search</span></div></label></li></ul><div class="coveo-facet-search"><div class="coveo-facet-search-magnifier" style="display: block;"></div><div class="coveo-facet-search-wait-animation" style="display: none;"></div><div class="coveo-facet-search-clear" title="Clear Search" style="display: none;"><span class="coveo-icon"></span></div><div class="coveo-facet-search-middle"><input type="text" autocapitalize="off" autocorrect="off" placeholder="" class="coveo-facet-search-input" form="coveo-dummy-form"></div></div><div class="coveo-facet-footer"><div class="coveo-facet-less" tabindex="0"><span class="coveo-icon"></span></div><div class="coveo-facet-more coveo-active" tabindex="0"><span class="coveo-icon"></span></div></div></div>
+<div class="CoveoFacet" data-title="Supported Device" data-field="@appdevices" data-tab="App Store, Games, Sports, Books, Demo" data-is-multi-value-field="true">
+      <div class="coveo-facet-header"><div class="coveo-facet-header-title-section"><div title="Supported Device" class="coveo-facet-header-title">Supported Device</div><div class="coveo-facet-header-wait-animation" style="visibility: hidden;"></div></div><div class="coveo-facet-header-settings-section"><div title="Clear Supported Device" class="coveo-facet-header-eraser"><span class="coveo-icon"></span></div><div title="Switch to AND" class="coveo-facet-header-operator" style="display: none;"><span class="coveo-or coveo-icon"></span></div><div class="coveo-facet-header-settings" title="Settings"><span class="coveo-icon"></span></div></div></div><ul class="coveo-facet-values"><li class="coveo-facet-value coveo-facet-selectable" data-value="iphone"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">4,600</span><span class="coveo-facet-value-caption" title="iphone">iphone</span></div></label><div title="Exclude iphone" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="ipod"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">4,600</span><span class="coveo-facet-value-caption" title="ipod">ipod</span></div></label><div title="Exclude ipod" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="ipad"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">3,630</span><span class="coveo-facet-value-caption" title="ipad">ipad</span></div></label><div title="Exclude ipad" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="tvos"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">241</span><span class="coveo-facet-value-caption" title="tvos">tvos</span></div></label><div title="Exclude tvos" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li></ul><div class="coveo-facet-search"><div class="coveo-facet-search-magnifier" style="display: block;"></div><div class="coveo-facet-search-wait-animation" style="display: none;"></div><div class="coveo-facet-search-clear" title="Clear Search" style="display: none;"><span class="coveo-icon"></span></div><div class="coveo-facet-search-middle"><input type="text" autocapitalize="off" autocorrect="off" placeholder="" class="coveo-facet-search-input" form="coveo-dummy-form"></div></div><div class="coveo-facet-footer coveo-facet-empty"><div class="coveo-facet-less" tabindex="0"><span class="coveo-icon"></span></div><div class="coveo-facet-more" tabindex="0"><span class="coveo-icon"></span></div></div></div>
+
+<div class="CoveoFacetSlider coveo-disabled" data-title="Minimum Version of iOS required" data-field="@apprequierment" data-range-slider="true" data-rounded="1" data-tab="Demo, App Store, Games, Sports, Books">
+      <div class="coveo-facet-header"><div class="coveo-facet-header-title-section"><div title="Minimum Version of iOS required" class="coveo-facet-header-title">Minimum Version of iOS required</div><div class="coveo-facet-header-wait-animation" style="visibility: hidden;"></div></div><div class="coveo-facet-header-settings-section"><div title="Clear Minimum Version of iOS required" class="coveo-facet-header-eraser" style="display: none;"><span class="coveo-icon"></span></div></div></div><div class="coveo-facet-values coveo-slider-container"><div><div class="coveo-slider-line coveo-background"></div><div class="coveo-slider-line coveo-active" style="width: 100%; left: 0%; right: 100%;"></div><div class="coveo-slider-button" style="left: 0%;"></div><div class="coveo-slider-button coveo-range-button" style="left: 100%;"></div><div class="coveo-slider-caption">3.0  - 11.2 </div></div></div></div>
+
+<div class="CoveoFacet coveo-tab-disabled" data-title="Source" data-field="@source" data-tab="ALL">
+      <div class="coveo-facet-header"><div class="coveo-facet-header-title-section"><div title="Source" class="coveo-facet-header-title">Source</div><div class="coveo-facet-header-wait-animation" style="visibility: hidden;"></div></div><div class="coveo-facet-header-settings-section"><div title="Clear Source" class="coveo-facet-header-eraser"><span class="coveo-icon"></span></div><div title="Switch to AND" class="coveo-facet-header-operator" style="display: none;"><span class="coveo-or coveo-icon"></span></div><div class="coveo-facet-header-settings" title="Settings"><span class="coveo-icon"></span></div></div></div><ul class="coveo-facet-values"><li class="coveo-facet-value coveo-facet-selectable" data-value="App Store"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">4,600</span><span class="coveo-facet-value-caption" title="App Store">App Store</span></div></label><div title="Exclude App Store" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="Apple Youtube Demo"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">222</span><span class="coveo-facet-value-caption" title="Apple Youtube Demo">Apple Youtube Demo</span></div></label><div title="Exclude Apple Youtube Demo" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li></ul><div class="coveo-facet-search"><div class="coveo-facet-search-magnifier" style="display: block;"></div><div class="coveo-facet-search-wait-animation" style="display: none;"></div><div class="coveo-facet-search-clear" title="Clear Search" style="display: none;"><span class="coveo-icon"></span></div><div class="coveo-facet-search-middle"><input type="text" autocapitalize="off" autocorrect="off" placeholder="" class="coveo-facet-search-input" form="coveo-dummy-form"></div></div><div class="coveo-facet-footer coveo-facet-empty"><div class="coveo-facet-less" tabindex="0"><span class="coveo-icon"></span></div><div class="coveo-facet-more" tabindex="0"><span class="coveo-icon"></span></div></div></div>
+<div class="CoveoFacet coveo-tab-disabled" data-title="FileType" data-field="@filetype" data-tab="ALL">
+      <div class="coveo-facet-header"><div class="coveo-facet-header-title-section"><div title="File type" class="coveo-facet-header-title">File type</div><div class="coveo-facet-header-wait-animation" style="visibility: hidden;"></div></div><div class="coveo-facet-header-settings-section"><div title="Clear File type" class="coveo-facet-header-eraser"><span class="coveo-icon"></span></div><div title="Switch to AND" class="coveo-facet-header-operator" style="display: none;"><span class="coveo-or coveo-icon"></span></div><div class="coveo-facet-header-settings" title="Settings"><span class="coveo-icon"></span></div></div></div><ul class="coveo-facet-values"><li class="coveo-facet-value coveo-facet-selectable" data-value="txt"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">4,597</span><span class="coveo-facet-value-caption" title="Text">Text</span></div></label><div title="Exclude Text" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li><li class="coveo-facet-value coveo-facet-selectable" data-value="YouTubeVideo"><label class="coveo-facet-value-label"><div class="coveo-facet-value-label-wrapper"><input type="checkbox" form="coveo-dummy-form"><div class="coveo-facet-value-checkbox" tabindex="0"><span></span></div><span class="coveo-facet-value-count">222</span><span class="coveo-facet-value-caption" title="YouTube video">YouTube video</span></div></label><div title="Exclude YouTube video" class="coveo-facet-value-exclude" tabindex="0"><span class="coveo-icon"></span></div></li></ul><div class="coveo-facet-search"><div class="coveo-facet-search-magnifier" style="display: block;"></div><div class="coveo-facet-search-wait-animation" style="display: none;"></div><div class="coveo-facet-search-clear" title="Clear Search" style="display: none;"><span class="coveo-icon"></span></div><div class="coveo-facet-search-middle"><input type="text" autocapitalize="off" autocorrect="off" placeholder="" class="coveo-facet-search-input" form="coveo-dummy-form"></div></div><div class="coveo-facet-footer coveo-facet-empty"><div class="coveo-facet-less" tabindex="0"><span class="coveo-icon"></span></div><div class="coveo-facet-more" tabindex="0"><span class="coveo-icon"></span></div></div></div><div class="coveo-bottomSpace"></div></div>
+    <div class="coveo-results-column">
+      <div class="CoveoShareQuery">
+      <div class="coveo-share-query-summary-info"><span class="coveo-query-summary-info-title">Share Query</span><div class="coveo-share-query-summary-info-close"><span></span></div><div class="coveo-share-query-summary-info-boxes"><div><span class="coveo-share-query-summary-info-label">Link:</span><input type="text" class="coveo-share-query-summary-info-input" form="coveo-dummy-form"></div><div><span class="coveo-share-query-summary-info-label">Complete Query:</span><input type="text" class="coveo-share-query-summary-info-input" form="coveo-dummy-form"></div></div></div></div>
+      <div class="CoveoPreferencesPanel"><div class="coveo-preferences-panel-title">Preferences</div><div class="coveo-preferences-panel-close"><span class="coveo-icon"></span></div>
+        <div class="CoveoResultsPreferences">
+        <div class="coveo-title">Link Opening Settings</div><div class="coveo-choices-container"><div><div><div class="coveo-choice-container"><div class="coveo-section coveo-section-input"><input class="coveo-Always open results in new window" id="coveo-Always open results in new window" type="checkbox" name="ResultsPreferences" value="Always open results in new window"><span class="coveo-input-icon"></span><label class="coveo-preferences-panel-item-label" for="coveo-Always open results in new window">Always open results in new window</label></div><div class="coveo-section coveo-section-tab"></div><div class="coveo-section coveo-section-expression"></div></div></div></div></div></div>
+        <div class="CoveoResultsFiltersPreferences">
+        <div class="coveo-title">Results Filtering Expressions</div><div class="coveo-advanced-filters">Create</div><a href="http://www.coveo.com/go?dest=adminhelp70&amp;lcid=9&amp;context=10006" class="coveo-online-help">?</a><div class="coveo-advanced-filters-builder"><form lpformnum="1"><div class="coveo-caption"><div><div class="coveo-choice-container"><textarea class="coveo-Caption" name="coveo-Caption" placeholder="Enter expression name" required="required"></textarea></div></div></div><div class="coveo-tab"><div><div class="coveo-choice-container"><textarea class="coveo-Tab" name="coveo-Tab" placeholder="Tab" readonly="readonly"></textarea></div></div><select multiple="multiple"><option>ALL</option><option>App Store</option><option>Demo</option><option>Games</option><option>Sports</option><option>Books</option><option>Youtube</option></select></div><div class="coveo-expression"><div><div class="coveo-choice-container"><textarea class="coveo-Expression" name="coveo-Expression" placeholder="Enter expression to filter results with" required="required"></textarea></div></div></div><div class="coveo-choice-container coveo-close-and-save"><span class="coveo-save"></span><span class="coveo-close"></span></div><input type="submit"></form></div></div>
+      </div>
+      <div class="CoveoTriggers"></div>
+      <div class="CoveoBreadcrumb" style="display: none;"><div class="coveo-breadcrumb-items"></div><div class="coveo-breadcrumb-clear-all" title="Clear All Filters" tabindex="0"><div class="coveo-icon coveo-breadcrumb-icon-clear-all"></div><div>Clear </div></div></div>
+      <div class="CoveoSearchAlerts CoveoSubscriptionsMessages">
+      </div>
+      <div class="coveo-results-header">
+        <div class="coveo-summary-section">
+          <span class="CoveoQuerySummary">
+          <span>Results <span class="coveo-highlight">1</span>-<span class="coveo-highlight">10</span> of <span class="coveo-highlight">4,600</span></span></span>
+          <span class="CoveoQueryDuration" style="display: inline;" title="Duration: in 0.05 seconds
+Index Duration: in 0.02 seconds
+Proxy Duration: Unavailable
+Client Duration: Unavailable">
+          <span>in 0.05 seconds</span></span>
+        </div>
+        <div class="coveo-sort-section"><span class="CoveoSort coveo-selected" data-sort-criteria="relevancy" data-caption="Relevance" tabindex="0">Relevance</span>
+<span class="CoveoSort coveo-ascending" data-sort-criteria="@appranking ascending, @appranking descending" data-caption="App Store Ranking" data-tab="App Store, Games, Sports, Books, Demo" tabindex="0">App Store Ranking<span class="coveo-icon"></span></span>
+
+</div>
+      </div>
+      <div class="CoveoHiddenQuery">
+      </div>
+      <div class="CoveoDidYouMean" style="display: none;"></div>
+      <div class="CoveoErrorReport" data-pop-up="false" style="display: none;">
+      <div class="coveo-error-report-title"><h3></h3><h4></h4></div><div class="coveo-error-report-options"><span class="coveo-error-report-previous">Go Back</span><span class="coveo-error-report-clear">Reset</span><span class="coveo-error-report-retry">Retry</span></div><div class="coveo-error-report-message"></div></div>
+      <div class="CoveoResultList" data-wait-animation="fade" data-auto-select-fields-to-include="true"><script type="text/html" data-condition="raw.connectortype &amp;&amp; raw.connectortype.toLowerCase() == &quot;youtubecrawler&quot;" class="result-template" id="YouTube"><div class="coveo-result-frame">  <div class="coveo-result-row">    <div class="coveo-result-cell" style="width:220px; padding-top:7px">      <span class="CoveoYouTubeThumbnail">      </span>    </div>    <div class="coveo-result-cell" style="">      <div class="coveo-result-row">        <div class="coveo-result-cell" style="font-size:18px">          <a class="CoveoResultLink">          </a>        </div>        <div class="coveo-result-cell" style="text-align:right; width:120px;font-size:12px">          <span class="CoveoFieldValue" data-field="@date" data-helper="dateTime">          </span>        </div>      </div>      <div class="coveo-result-row">        <div class="coveo-result-cell" style="padding-top:10px;">          <div class="CoveoExcerpt">          </div>        </div>      </div>      <div class="coveo-result-row">        <div class="coveo-result-cell" style="padding-top:10px;font-size:12px">          <span class="CoveoFieldValue" data-field="@ytvideoduration" data-helper="timeSpan" data-helper-options-is-milliseconds="false">          </span>          <span class="CoveoText" data-value="•">          </span>          <span class="CoveoFieldValue" data-field="@ytviewcount">          </span>          <span class="CoveoText" data-value="views">          </span>        </div>      </div>    </div>  </div></div></script>
+        <script id="App Store" class="result-template" type="text/html"><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"></span>
+<div class="CoveoQuickview">
+          </div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink">
+          </a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          <span class="CoveoFieldValue" data-field="@itmsdate" data-helper="dateTime" data-html-value="false">
+          </span>
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">
+          </span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <table class="CoveoFieldTable"><tr data-caption="Category" data-field="@appcategory"></tr><tr data-caption="Sub Category" data-field="@appsubcategory"></tr><tr data-caption="Seller" data-field="@appseller"></tr><tr data-caption="Size" data-field="@appsize"></tr><tr data-caption="App Store Ranking" data-field="@appranking"></tr></table>
+          </div>
+          </div>
+          </div>
+        </script>
+      <div class="coveo-result-list-container coveo-list-layout-container"><div class="coveo-list-layout CoveoResult "><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"><span><img src="https://is3-ssl.mzstatic.com/image/thumb/Purple62/v4/21/07/4c/21074cf1-b63a-2ad9-06c3-ce7942af9db8/mzl.wbxqcafi.png/246x0w.jpg" alt="App Logo" height="90" width="90"></span></span>
+<div class="CoveoQuickview">
+          <div><div class="coveo-icon-for-quickview"></div><div class="coveo-caption-for-quickview" tabindex="0">Quick View</div></div></div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink" tabindex="0" href="https://itunes.apple.com/us/app/abc-33-40-working-for-you/id404886622?mt=8&#10;">ABC 33/40 – Working For You</a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">The ABC 3340 News app delivers news, weather and sports in an instant. ... With the new and fully redesigned app you can watch live newscasts, get up-to-the minute local and national news, ...</span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <div class="coveo-field-table-toggle"><span class="coveo-field-table-toggle-caption" tabindex="0">Details</span><span class="coveo-field-table-toggle-icon"></span></div><div class="coveo-field-table-toggle-container" style="height: 0px;"><table class="CoveoFieldTable CoveoValueRow"><tbody><tr data-caption="Category" data-field="@appcategory" class="CoveoValueRow"><th>Category</th><td><span class="coveo-clickable">News</span></td></tr><tr data-caption="Sub Category" data-field="@appsubcategory" class="CoveoValueRow"><th>Sub Category</th><td><span>News</span></td></tr><tr data-caption="Seller" data-field="@appseller" class="CoveoValueRow"><th>Seller</th><td><span>Sinclair Broadcast Group, Inc</span></td></tr><tr data-caption="Size" data-field="@appsize" class="CoveoValueRow"><th>Size</th><td><span>59.331584</span></td></tr><tr data-caption="App Store Ranking" data-field="@appranking" class="CoveoValueRow"><th>App Store Ranking</th><td><span>101</span></td></tr></tbody><span class="coveo-field-table-toggle-icon-up coveo-field-table-toggle"></span></table></div>
+          </div>
+          </div>
+          </div>
+        </div><div class="coveo-list-layout CoveoResult "><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"><span><img src="https://is2-ssl.mzstatic.com/image/thumb/Purple128/v4/bf/8a/7e/bf8a7e08-3568-25ec-294c-ae5621c235c7/AppIcon-1x_U007emarketing-85-220-0-4.png/246x0w.jpg" alt="App Logo" height="90" width="90"></span></span>
+<div class="CoveoQuickview">
+          <div><div class="coveo-icon-for-quickview"></div><div class="coveo-caption-for-quickview" tabindex="0">Quick View</div></div></div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink" tabindex="0" href="https://itunes.apple.com/us/app/aeris-pulse-weather/id925056174?mt=8&#10;">Aeris Pulse Weather</a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">Be prepared for ever-changing weather with Aeris Pulse, and never be surprised by the weather again! ... From severe storms to heavy snowfall, Aeris Pulse personalizes weather threats like ...</span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <div class="coveo-field-table-toggle"><span class="coveo-field-table-toggle-caption" tabindex="0">Details</span><span class="coveo-field-table-toggle-icon"></span></div><div class="coveo-field-table-toggle-container" style="height: 0px;"><table class="CoveoFieldTable CoveoValueRow"><tbody><tr data-caption="Category" data-field="@appcategory" class="CoveoValueRow"><th>Category</th><td><span class="coveo-clickable">Weather</span></td></tr><tr data-caption="Sub Category" data-field="@appsubcategory" class="CoveoValueRow"><th>Sub Category</th><td><span>Weather</span></td></tr><tr data-caption="Seller" data-field="@appseller" class="CoveoValueRow"><th>Seller</th><td><span>Media Logic Group, LLC</span></td></tr><tr data-caption="Size" data-field="@appsize" class="CoveoValueRow"><th>Size</th><td><span>30.84288</span></td></tr><tr data-caption="App Store Ranking" data-field="@appranking" class="CoveoValueRow"><th>App Store Ranking</th><td><span>95</span></td></tr></tbody><span class="coveo-field-table-toggle-icon-up coveo-field-table-toggle"></span></table></div>
+          </div>
+          </div>
+          </div>
+        </div><div class="coveo-list-layout CoveoResult "><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"><span><img src="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/88/0f/65/880f6506-ff99-51a8-adaf-245e5b706aec/AppIcon_KVIA-1x_U007emarketing-85-220-6.jpeg/246x0w.jpg" alt="App Logo" height="90" width="90"></span></span>
+<div class="CoveoQuickview">
+          <div><div class="coveo-icon-for-quickview"></div><div class="coveo-caption-for-quickview" tabindex="0">Quick View</div></div></div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink" tabindex="0" href="https://itunes.apple.com/us/app/abc-7-stormtrack-weather-app/id1084046313?mt=8&#10;">ABC-7 StormTRACK Weather App</a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">The KVIA Mobile Weather App includes: ... Access to station content specifically for our mobile users ... 250 meter radar, the highest resolution available</span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <div class="coveo-field-table-toggle"><span class="coveo-field-table-toggle-caption" tabindex="0">Details</span><span class="coveo-field-table-toggle-icon"></span></div><div class="coveo-field-table-toggle-container" style="height: 0px;"><table class="CoveoFieldTable CoveoValueRow"><tbody><tr data-caption="Category" data-field="@appcategory" class="CoveoValueRow"><th>Category</th><td><span class="coveo-clickable">Weather</span></td></tr><tr data-caption="Sub Category" data-field="@appsubcategory" class="CoveoValueRow"><th>Sub Category</th><td><span>Weather</span></td></tr><tr data-caption="Seller" data-field="@appseller" class="CoveoValueRow"><th>Seller</th><td><span>News-Press &amp; Gazette Company</span></td></tr><tr data-caption="Size" data-field="@appsize" class="CoveoValueRow"><th>Size</th><td><span>93.703168</span></td></tr><tr data-caption="App Store Ranking" data-field="@appranking" class="CoveoValueRow"><th>App Store Ranking</th><td><span>127</span></td></tr></tbody><span class="coveo-field-table-toggle-icon-up coveo-field-table-toggle"></span></table></div>
+          </div>
+          </div>
+          </div>
+        </div><div class="coveo-list-layout CoveoResult "><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"><span><img src="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/a5/ad/38/a5ad3898-c82a-6c8b-89d1-6c72c6ace0a7/mzl.wxyzlbor.png/246x0w.jpg" alt="App Logo" height="90" width="90"></span></span>
+<div class="CoveoQuickview">
+          <div><div class="coveo-icon-for-quickview"></div><div class="coveo-caption-for-quickview" tabindex="0">Quick View</div></div></div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink" tabindex="0" href="https://itunes.apple.com/us/app/abc7-news/id1295370944?mt=8&#10;">ABC7 News</a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">Get More of the latest news, weather and sports wherever you go with the ABC7 News app. ... Get the best features from the ABC7 newscast and website in experience that is a must on your mobile ...</span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <div class="coveo-field-table-toggle"><span class="coveo-field-table-toggle-caption" tabindex="0">Details</span><span class="coveo-field-table-toggle-icon"></span></div><div class="coveo-field-table-toggle-container" style="height: 0px;"><table class="CoveoFieldTable CoveoValueRow"><tbody><tr data-caption="Category" data-field="@appcategory" class="CoveoValueRow"><th>Category</th><td><span class="coveo-clickable">News</span></td></tr><tr data-caption="Sub Category" data-field="@appsubcategory" class="CoveoValueRow"><th>Sub Category</th><td><span>News</span></td></tr><tr data-caption="Seller" data-field="@appseller" class="CoveoValueRow"><th>Seller</th><td><span>Waterman Broadcasting Corp</span></td></tr><tr data-caption="Size" data-field="@appsize" class="CoveoValueRow"><th>Size</th><td><span>71.171072</span></td></tr><tr data-caption="App Store Ranking" data-field="@appranking" class="CoveoValueRow"><th>App Store Ranking</th><td><span>105</span></td></tr></tbody><span class="coveo-field-table-toggle-icon-up coveo-field-table-toggle"></span></table></div>
+          </div>
+          </div>
+          </div>
+        </div><div class="coveo-list-layout CoveoResult "><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"><span><img src="https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/aa/a5/dc/aaa5dcad-0435-e595-c5ce-255099adb7de/AppIcon-1x_U007emarketing-0-0-GLES2_U002c0-512MB-sRGB-0-0-0-85-220-0-0-0-5.png/246x0w.jpg" alt="App Logo" height="90" width="90"></span></span>
+<div class="CoveoQuickview">
+          <div><div class="coveo-icon-for-quickview"></div><div class="coveo-caption-for-quickview" tabindex="0">Quick View</div></div></div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink" tabindex="0" href="https://itunes.apple.com/us/app/abc11-raleigh-durham/id408441304?mt=8&#10;">ABC11 Raleigh Durham</a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">The ABC11 app provides the latest local, weather and national top stories and breaking news customized for ... Get more live and on-demand video than ever before, including live newscasts, and ...</span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <div class="coveo-field-table-toggle"><span class="coveo-field-table-toggle-caption" tabindex="0">Details</span><span class="coveo-field-table-toggle-icon"></span></div><div class="coveo-field-table-toggle-container" style="height: 0px;"><table class="CoveoFieldTable CoveoValueRow"><tbody><tr data-caption="Category" data-field="@appcategory" class="CoveoValueRow"><th>Category</th><td><span class="coveo-clickable">News</span></td></tr><tr data-caption="Sub Category" data-field="@appsubcategory" class="CoveoValueRow"><th>Sub Category</th><td><span>News</span></td></tr><tr data-caption="Seller" data-field="@appseller" class="CoveoValueRow"><th>Seller</th><td><span>ABC Digital</span></td></tr><tr data-caption="Size" data-field="@appsize" class="CoveoValueRow"><th>Size</th><td><span>79.301632</span></td></tr><tr data-caption="App Store Ranking" data-field="@appranking" class="CoveoValueRow"><th>App Store Ranking</th><td><span>61</span></td></tr></tbody><span class="coveo-field-table-toggle-icon-up coveo-field-table-toggle"></span></table></div>
+          </div>
+          </div>
+          </div>
+        </div><div class="coveo-list-layout CoveoResult "><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"><span><img src="https://is5-ssl.mzstatic.com/image/thumb/Purple5/v4/77/e3/41/77e3419f-9acd-dc9d-75ad-448ad08dcddd/mzl.khekbzdd.png/246x0w.png" alt="App Logo" height="90" width="90"></span></span>
+<div class="CoveoQuickview">
+          <div><div class="coveo-icon-for-quickview"></div><div class="coveo-caption-for-quickview" tabindex="0">Quick View</div></div></div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink" tabindex="0" href="https://itunes.apple.com/us/app/baltimore-washington-airport-bwi-flight-tracker/id611546611?mt=8&#10;">Baltimore Washington Airport BWI - Flight Tracker</a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">Flight tracker premium. #1 airport app For Baltimore (plus DCA and IAD) and every airport (2500+) ... It serves eastern Maryland and the Washington, D.C. area. ... Did you remember everything?</span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <div class="coveo-field-table-toggle"><span class="coveo-field-table-toggle-caption" tabindex="0">Details</span><span class="coveo-field-table-toggle-icon"></span></div><div class="coveo-field-table-toggle-container" style="height: 0px;"><table class="CoveoFieldTable CoveoValueRow"><tbody><tr data-caption="Category" data-field="@appcategory" class="CoveoValueRow"><th>Category</th><td><span class="coveo-clickable">Travel</span></td></tr><tr data-caption="Sub Category" data-field="@appsubcategory" class="CoveoValueRow"><th>Sub Category</th><td><span>Travel</span></td></tr><tr data-caption="Seller" data-field="@appseller" class="CoveoValueRow"><th>Seller</th><td><span>Webport Corporation</span></td></tr><tr data-caption="Size" data-field="@appsize" class="CoveoValueRow"><th>Size</th><td><span>25.612288</span></td></tr><tr data-caption="App Store Ranking" data-field="@appranking" class="CoveoValueRow"><th>App Store Ranking</th><td><span>68</span></td></tr></tbody><span class="coveo-field-table-toggle-icon-up coveo-field-table-toggle"></span></table></div>
+          </div>
+          </div>
+          </div>
+        </div><div class="coveo-list-layout CoveoResult "><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"><span><img src="https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/bb/ba/d8/bbbad839-bd68-0278-b8db-19083c1c665a/pr_source.jpg/246x0w.jpg" alt="App Logo" height="90" width="90"></span></span>
+<div class="CoveoQuickview">
+          <div><div class="coveo-icon-for-quickview"></div><div class="coveo-caption-for-quickview" tabindex="0">Quick View</div></div></div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink" tabindex="0" href="https://itunes.apple.com/us/app/abc7-wwsb-first-alert-weather/id430653305?mt=8&#10;">ABC7 WWSB First Alert Weather</a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">WWSB ABC 7 MySuncoast.com is proud to announce a full featured weather app for the ... Access to station content specifically for our mobile users ... High resolution satellite cloud imagery</span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <div class="coveo-field-table-toggle"><span class="coveo-field-table-toggle-caption" tabindex="0">Details</span><span class="coveo-field-table-toggle-icon"></span></div><div class="coveo-field-table-toggle-container" style="height: 0px;"><table class="CoveoFieldTable CoveoValueRow"><tbody><tr data-caption="Category" data-field="@appcategory" class="CoveoValueRow"><th>Category</th><td><span class="coveo-clickable">Weather</span></td></tr><tr data-caption="Sub Category" data-field="@appsubcategory" class="CoveoValueRow"><th>Sub Category</th><td><span>Weather</span></td></tr><tr data-caption="Seller" data-field="@appseller" class="CoveoValueRow"><th>Seller</th><td><span>Southern Broadcast Corp of Sarasota</span></td></tr><tr data-caption="Size" data-field="@appsize" class="CoveoValueRow"><th>Size</th><td><span>60.622848</span></td></tr><tr data-caption="App Store Ranking" data-field="@appranking" class="CoveoValueRow"><th>App Store Ranking</th><td><span>177</span></td></tr></tbody><span class="coveo-field-table-toggle-icon-up coveo-field-table-toggle"></span></table></div>
+          </div>
+          </div>
+          </div>
+        </div><div class="coveo-list-layout CoveoResult "><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"><span><img src="https://is2-ssl.mzstatic.com/image/thumb/Purple127/v4/17/92/cc/1792cc99-f0ea-612c-1947-320b0795abbe/mzl.mvotmctc.png/246x0w.jpg" alt="App Logo" height="90" width="90"></span></span>
+<div class="CoveoQuickview">
+          <div><div class="coveo-icon-for-quickview"></div><div class="coveo-caption-for-quickview" tabindex="0">Quick View</div></div></div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink" tabindex="0" href="https://itunes.apple.com/us/app/barometer-atmospheric-pressure/id769602146?mt=8&#10;">Barometer - Atmospheric pressure</a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">Wherever you are Barometer gives you the local atmospheric pressure, directly on your iPhone iPad or iPod. ... With an intuitive and accurate design, Barometer offers a pleasant experience and ...</span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <div class="coveo-field-table-toggle"><span class="coveo-field-table-toggle-caption" tabindex="0">Details</span><span class="coveo-field-table-toggle-icon"></span></div><div class="coveo-field-table-toggle-container" style="height: 0px;"><table class="CoveoFieldTable CoveoValueRow"><tbody><tr data-caption="Category" data-field="@appcategory" class="CoveoValueRow"><th>Category</th><td><span class="coveo-clickable">Weather</span></td></tr><tr data-caption="Sub Category" data-field="@appsubcategory" class="CoveoValueRow"><th>Sub Category</th><td><span>Weather</span></td></tr><tr data-caption="Seller" data-field="@appseller" class="CoveoValueRow"><th>Seller</th><td><span>Elton Nallbati</span></td></tr><tr data-caption="Size" data-field="@appsize" class="CoveoValueRow"><th>Size</th><td><span>9.131008</span></td></tr><tr data-caption="App Store Ranking" data-field="@appranking" class="CoveoValueRow"><th>App Store Ranking</th><td><span>126</span></td></tr></tbody><span class="coveo-field-table-toggle-icon-up coveo-field-table-toggle"></span></table></div>
+          </div>
+          </div>
+          </div>
+        </div><div class="coveo-list-layout CoveoResult "><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"><span><img src="https://is5-ssl.mzstatic.com/image/thumb/Purple71/v4/4e/7c/31/4e7c316c-b6b6-43cd-268f-ecc028bf2393/pr_source.jpg/246x0w.jpg" alt="App Logo" height="90" width="90"></span></span>
+<div class="CoveoQuickview">
+          <div><div class="coveo-icon-for-quickview"></div><div class="coveo-caption-for-quickview" tabindex="0">Quick View</div></div></div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink" tabindex="0" href="https://itunes.apple.com/us/app/bad-weather/id1163322622?mt=8&#10;">Bad Weather</a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">Do you get a laugh when you look at a weather forecast? ... You would if you had the Bad Weather app. ... Our weather reports are like a custard pie that hits you right in the face, and they’ ...</span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <div class="coveo-field-table-toggle"><span class="coveo-field-table-toggle-caption" tabindex="0">Details</span><span class="coveo-field-table-toggle-icon"></span></div><div class="coveo-field-table-toggle-container" style="height: 0px;"><table class="CoveoFieldTable CoveoValueRow"><tbody><tr data-caption="Category" data-field="@appcategory" class="CoveoValueRow"><th>Category</th><td><span class="coveo-clickable">Weather</span></td></tr><tr data-caption="Sub Category" data-field="@appsubcategory" class="CoveoValueRow"><th>Sub Category</th><td><span>Weather</span></td></tr><tr data-caption="Seller" data-field="@appseller" class="CoveoValueRow"><th>Seller</th><td><span>Victoria George</span></td></tr><tr data-caption="Size" data-field="@appsize" class="CoveoValueRow"><th>Size</th><td><span>16.109568</span></td></tr><tr data-caption="App Store Ranking" data-field="@appranking" class="CoveoValueRow"><th>App Store Ranking</th><td><span>85</span></td></tr></tbody><span class="coveo-field-table-toggle-icon-up coveo-field-table-toggle"></span></table></div>
+          </div>
+          </div>
+          </div>
+        </div><div class="coveo-list-layout CoveoResult "><div class="coveo-result-frame">
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center;padding-top:7px;"><span class="CoveoFieldValue" data-field="@appimage" data-html-value="true" data-helper="image" data-helper-options-alt="App Logo" data-helper-options-height="90" data-helper-options-width="90"><span><img src="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/88/c9/18/88c918a6-b63d-fe81-45d2-22edf5acbca6/AppIcon-1x_U007emarketing-85-220-3.png/246x0w.jpg" alt="App Logo" height="90" width="90"></span></span>
+<div class="CoveoQuickview">
+          <div><div class="coveo-icon-for-quickview"></div><div class="coveo-caption-for-quickview" tabindex="0">Quick View</div></div></div>
+          </div>
+    <div class="coveo-result-cell" style="padding-left:15px;">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell" style="font-size:18px;">
+          <a class="CoveoResultLink" tabindex="0" href="https://itunes.apple.com/us/app/beweather-2-pro/id931212644?mt=8&#10;">BeWeather 2 Pro</a>
+          </div>
+        <div class="coveo-result-cell" style="width:120px; text-align:right; font-size:12px">
+          
+          </div>
+          </div>
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <span class="CoveoExcerpt">BeWeather is the most comprehensive and personal weather app and widget for iOS and Apple Watch. ... All using the familiar weather interface you have always used on your device.</span>
+          </div>
+          </div>
+          </div>
+          </div>
+  <div class="coveo-result-row">
+    <div class="coveo-result-cell" style="width:85px;text-align:center">
+          </div>
+    <div class="coveo-result-cell" style="font-size:13px;padding-left: 15px;">
+      <div class="coveo-field-table-toggle"><span class="coveo-field-table-toggle-caption" tabindex="0">Details</span><span class="coveo-field-table-toggle-icon"></span></div><div class="coveo-field-table-toggle-container" style="height: 0px;"><table class="CoveoFieldTable CoveoValueRow"><tbody><tr data-caption="Category" data-field="@appcategory" class="CoveoValueRow"><th>Category</th><td><span class="coveo-clickable">Weather</span></td></tr><tr data-caption="Sub Category" data-field="@appsubcategory" class="CoveoValueRow"><th>Sub Category</th><td><span>Weather</span></td></tr><tr data-caption="Seller" data-field="@appseller" class="CoveoValueRow"><th>Seller</th><td><span>Bellshare Inc</span></td></tr><tr data-caption="Size" data-field="@appsize" class="CoveoValueRow"><th>Size</th><td><span>14.288896</span></td></tr><tr data-caption="App Store Ranking" data-field="@appranking" class="CoveoValueRow"><th>App Store Ranking</th><td><span>53</span></td></tr></tbody><span class="coveo-field-table-toggle-icon-up coveo-field-table-toggle"></span></table></div>
+          </div>
+          </div>
+          </div>
+        </div></div></div>
+      <div class="CoveoPager">
+      <ul class="coveo-pager-list"><li class="coveo-pager-list-item coveo-active" tabindex="0"><a class="coveo-pager-list-item-text coveo-pager-anchor">1</a></li><li class="coveo-pager-list-item" tabindex="0"><a class="coveo-pager-list-item-text coveo-pager-anchor">2</a></li><li class="coveo-pager-list-item" tabindex="0"><a class="coveo-pager-list-item-text coveo-pager-anchor">3</a></li><li class="coveo-pager-list-item" tabindex="0"><a class="coveo-pager-list-item-text coveo-pager-anchor">4</a></li><li class="coveo-pager-list-item" tabindex="0"><a class="coveo-pager-list-item-text coveo-pager-anchor">5</a></li><li class="coveo-pager-next coveo-pager-anchor coveo-pager-list-item"><a title="Next"><span></span></a></li></ul></div>
+      <div class="CoveoLogo">
+      <a class="coveo-powered-by coveo-footer-logo" href="http://www.coveo.com/"></a></div>
+    </div>
+    [[recommendation]]
+  </div>
+<script class="CoveoPipelineContext coveo-tab-disabled" type="text/x-context" data-tab="Demo">&#123;&#34;Key&#34;&#58;&#34;value&#34;&#125;</script><script class="CoveoPipelineContext" type="text/x-context">{}</script><script class="CoveoEndpoint" type="text/javascript">Coveo.SearchEndpoint.endpoints["My Endpoint"] = new Coveo.SearchEndpoint({"restUri":"http://server:8080/rest/search"})</script><script type="text/javascript">String.toLocaleString({});</script><ul class="coveo-facet-search-results" style="display: none;"></ul><ul class="coveo-facet-search-results" style="display: none;"></ul><ul class="coveo-facet-search-results" style="display: none;"></ul><ul class="coveo-facet-search-results" style="display: none;"></ul><ul class="coveo-facet-search-results" style="display: none;"></ul><ul class="coveo-facet-search-results" style="display: none;"></ul></div>
+<script>
+  function changeBackground() {
+   document.body.style.background = ('blue');
+}
+</script>
+
+
+    <img class="coveo-logout" src="lib/assets/logout.png" title="Logout coveotraininingrequest@gmail.com"></body></html>

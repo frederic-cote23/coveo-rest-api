@@ -1,11 +1,37 @@
 import json
-from utilities import fileManager
-import scenarioMaker
-import bodyMaker
+import searchApi
+import fileManager
 
-def hello():
-    print("Hello")
+config = fileManager.readJson('config.json')
 
+result_list = {}
+
+q_list = fileManager.readDict(config['queryFile'])
+
+
+for q in q_list:
+    print(q)
+    query = searchApi.search(config['access_token'], config['organizationId'], config['aq'], q, config['pipeline'])
+
+    result = {}
+
+    result['totalCount'] = query['totalCount']
+    result['documents'] = []
+    i = 0
+
+
+    for document in query['results']:
+        result['documents'].append(document['title'])
+        i+=1
+        if i >= 15 or  i > len(query['results']):
+            break
+    
+    result_list[q] = result 
+
+
+
+with open(config['resultListFile'], 'w') as outfile:
+    json.dump(result_list, outfile)
 
 
 '''
