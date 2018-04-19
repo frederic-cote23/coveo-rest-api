@@ -11,7 +11,7 @@
            "cq": "@source= \"App Store\""
        },
        "Demo": {
-        "name": "App Store",
+        "name": "Demo",
         "cq": "@source= \"App Store\""
         },
         "Games":{
@@ -35,19 +35,19 @@
         "App Category" : {
             "facetTitle": "App Category",
             "facetField": "@appcategory",
-            "facetTab": ["App Store"],
+            "facetTab": ["App Store", "Demo"],
             "facetValues": ""
         },
         "iTunes Age Requirements" : {
             "facetTitle": "iTunes Age Requirements",
             "facetField": "@apprating",
-            "facetTab": ["App Store", "Games", "Sports", "Books"],
+            "facetTab": ["App Store", "Demo", "Games", "Sports", "Books"],
             "facetValues": ""
         },
         "App Languages" : {
             "facetTitle": "App Languages",
             "facetField": "@applanguages",
-            "facetTab": ["App Store", "Games", "Sports", "Books"],
+            "facetTab": ["App Store", "Demo", "Games", "Sports", "Books"],
             "facetValues": ""
         }
     }

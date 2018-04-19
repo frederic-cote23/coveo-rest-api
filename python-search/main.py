@@ -7,32 +7,49 @@ config = fileManager.readJson('config.json')
 result_list = {}
 
 q_list = fileManager.readDict(config['queryFile'])
+facet_list = fileManager.readJson(config['facetFile'])
+tab_list = fileManager.readJson(config['tabFile'])
 
-
-for q in q_list:
-    print(q)
-    query = searchApi.search(config['access_token'], config['organizationId'], config['aq'], q, config['pipeline'])
-
-    result = {}
-
-    result['totalCount'] = query['totalCount']
-    result['documents'] = []
-    i = 0
-
-
-    for document in query['results']:
-        result['documents'].append(document['title'])
-        i+=1
-        if i >= 15 or  i > len(query['results']):
-            break
+for tab in tab_list:
+    print('--------------'+tab+'--------------')
+    tab_cq = tab_list[tab]['cq']
+    tab_name = tab_list[tab]['name']
+    result_list[tab] = {"tabName": tab_name, "tabCQ": tab_cq, "facet": {}}
     
-    result_list[q] = result 
+    for facet in facet_list:
+        print('--------------'+facet+'--------------')
+        result_list[tab]['facet'][facet] = {}
+        if( tab in facet_list[facet]['facetTab'] ):
+            result_list[tab]['facet'][facet]['facetValues'] = facet_list[facet]['facetValues'][0:5]
+            result_list[tab]['facet'][facet]['facetField'] = facet_list[facet]['facetField']
+            result_list[tab]['facet'][facet]['facetTitle'] = facet_list[facet]['facetTitle']
 
+            result_list[tab]['facet'][facet]['query'] = {}
+
+            for value in facet_list[facet]['facetValues'][0:5]:
+                aq = facet_list[facet]['facetField']+"=="+value
+                for q in q_list:
+                    print(tab+'-->'+aq+'-->'+q)
+                    query = searchApi.search(config['access_token'], config['organizationId'], q, aq, tab_cq, config['pipeline'])
+
+                    result = {}
+
+                    result['totalCount'] = query['totalCount']
+                    result['documents'] = []
+                    i = 0
+
+
+                    for document in query['results']:
+                        result['documents'].append(document['title'])
+                        i+=1
+                        if i >= 15 or  i > len(query['results']):
+                            break
+                    
+                    result_list[tab]['facet'][facet]['query'] = result 
 
 
 with open(config['resultListFile'], 'w') as outfile:
     json.dump(result_list, outfile)
-
 
 '''
 config_file = 'config.json'

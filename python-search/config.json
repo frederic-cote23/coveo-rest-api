@@ -1,8 +1,10 @@
 {
     "access_token": "xxcb8b6a78-16a2-4aec-b9a6-27df2ea0f5bc",
     "organizationId": "coveolearningbasicanalytics",
-    "aq": "@source='App Store'",
+    "aq": "@source=\"App Store\"",
     "pipeline": "default",
     "queryFile": "data/q.text",
+    "facetFile": "data/facet.json",
+    "tabFile": "data/tab.json",
     "resultListFile": "result_list.json"
 }
