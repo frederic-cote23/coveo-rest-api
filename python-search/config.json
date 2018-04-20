@@ -6,5 +6,6 @@
     "queryFile": "data/q.text",
     "facetFile": "data/facet.json",
     "tabFile": "data/tab.json",
-    "resultListFile": "result_list.json"
+    "resultListFile": "result_list.json",
+    "maxNumberOfFacetToTest": 15
 }

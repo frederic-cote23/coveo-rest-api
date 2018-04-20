@@ -4,12 +4,107 @@ import fileManager
 
 config = fileManager.readJson('config.json')
 
-result_list = {}
-
 q_list = fileManager.readDict(config['queryFile'])
 facet_list = fileManager.readJson(config['facetFile'])
 tab_list = fileManager.readJson(config['tabFile'])
 
+result_list = {}
+
+for q in q_list:
+
+    result_list[q] = {}
+
+    for tab in tab_list:
+        tab_cq = tab_list[tab]['cq']
+        tab_name = tab_list[tab]['name']
+        result_list[q][tab] = { "cq": tab_cq, "facets": [] }
+        
+        for facet in facet_list:
+            if( tab in facet_list[facet]['facetTab'] ):
+                max_number_of_facet_values = config['maxNumberOfFacetToTest']
+                for value in facet_list[facet]['facetValues'][0:max_number_of_facet_values]:
+                    aq = facet_list[facet]['facetField']+"=="+value
+                    facetField = facet_list[facet]['facetField']
+                    facetTitle = facet_list[facet]['facetTitle']
+
+                    query = searchApi.search(config['access_token'], config['organizationId'], q, aq, tab_cq, config['pipeline'])
+
+                    result = {}
+
+                    result['totalCount'] = query['totalCount']
+                    result['documents'] = []
+                    i = 0
+
+
+                    for document in query['results']:
+                        result['documents'].append(document['title'])
+                        i+=1
+                        if i >= 15 or  i > len(query['results']):
+                            break
+                    
+                    result_list[q][tab]['facets'].append({"facetValue": aq, "facetField": facetField, "facetTitle": facetTitle, "searchResults": result})
+
+
+
+with open(config['resultListFile'], 'w') as outfile:
+    json.dump(result_list, outfile)
+
+
+
+
+'''
+                query = searchApi.search(config['access_token'], config['organizationId'], q, aq, tab_cq, config['pipeline'])
+
+                result = {}
+                result['aq'] = aq
+                result['totalCount'] = query['totalCount']
+                result['documents'] = []
+                i = 0
+
+
+                for document in query['results']:
+                    result['documents'].append(document['title'])
+                    i+=1
+                    if i >= 15 or  i > len(query['results']):
+                        break
+                
+                result_list[q][tab]['facets'][facet] = result 
+
+with open(config['resultListFile'], 'w') as outfile:
+    json.dump(result_list, outfile)
+
+'''
+
+'''
+result_list
+ {
+     "[QUERY]": {
+         "tabName": {
+             "cq": [CQ],
+            "facets":[
+                {
+                    "facetTitle": "[facetTitle]",
+                    "facetField": "facetField",
+                    "facetValues": [
+                        {
+                            "aq": "[AQ]",
+                            totalCount: 0,
+                            "documents": []
+                        }
+                    ]
+                }
+            ]
+
+         }
+
+     }
+
+ }
+'''
+
+
+
+'''
 for tab in tab_list:
     print('--------------'+tab+'--------------')
     tab_cq = tab_list[tab]['cq']
@@ -50,6 +145,7 @@ for tab in tab_list:
 
 with open(config['resultListFile'], 'w') as outfile:
     json.dump(result_list, outfile)
+'''
 
 '''
 config_file = 'config.json'
